@@ -1,7 +1,4 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Map } from "lucide-react"
 import RecipeGenerator from "@/components/recipe-generator"
-import GroceryMap from "@/components/grocery-map"
 import { ChefHatIcon } from "@/components/icons/chef-hat"
 
 export default function Home() {
@@ -16,24 +13,7 @@ export default function Home() {
         </div>
       </header>
       <main className="container mx-auto p-4 sm:p-6 lg:p-8">
-        <Tabs defaultValue="recipe" className="w-full">
-          <TabsList className="grid w-full max-w-md mx-auto grid-cols-2">
-            <TabsTrigger value="recipe">
-              <ChefHatIcon className="mr-2 h-4 w-4" />
-              Recipe Generator
-            </TabsTrigger>
-            <TabsTrigger value="map">
-              <Map className="mr-2 h-4 w-4" />
-              Grocery Stores
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="recipe" className="mt-6">
-            <RecipeGenerator />
-          </TabsContent>
-          <TabsContent value="map" className="mt-6">
-            <GroceryMap />
-          </TabsContent>
-        </Tabs>
+        <RecipeGenerator />
       </main>
       <footer className="py-6 text-center text-sm text-muted-foreground">
         © {new Date().getFullYear()} PantryPal. All rights reserved.

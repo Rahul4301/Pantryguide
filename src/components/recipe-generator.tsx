@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { useEffect } from 'react';
+import { useActionState, useEffect } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import RecipeDisplay from './recipe-display';
 import { Skeleton } from './ui/skeleton';
@@ -36,7 +36,7 @@ function SubmitButton() {
 }
 
 export default function RecipeGenerator() {
-  const [state, formAction] = useFormState(getRecipeAction, initialState);
+  const [state, formAction] = useActionState(getRecipeAction, initialState);
   const { toast } = useToast();
   const { pending } = useFormStatus();
 

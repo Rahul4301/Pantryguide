@@ -20,7 +20,6 @@ export type GenerateRecipeInput = z.infer<typeof GenerateRecipeInputSchema>;
 
 const GenerateRecipeOutputSchema = z.object({
   recipeName: z.string().describe('The name of the generated recipe.'),
-  countryOfOrigin: z.string().optional().describe('The country where the recipe originates from.'),
   ingredients: z.array(z.string()).describe('The ingredients required for the recipe.'),
   instructions: z.string().describe('Step-by-step instructions for preparing the recipe.'),
   additionalNotes: z.string().optional().describe('Any additional notes or tips for the recipe.'),
@@ -36,8 +35,6 @@ const prompt = ai.definePrompt({
   input: {schema: GenerateRecipeInputSchema},
   output: {schema: GenerateRecipeOutputSchema},
   prompt: `You are a recipe generation AI. The user will provide you with a list of ingredients they have on hand, and you will generate a recipe using those ingredients.
-
-  Also, determine the country of origin for the recipe you generate.
 
   Ingredients: {{{ingredients}}}
 

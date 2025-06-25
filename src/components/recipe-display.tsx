@@ -4,14 +4,27 @@ import type { GenerateRecipeOutput } from '@/ai/flows/generate-recipe';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Utensils } from 'lucide-react';
+import Image from 'next/image';
 
 interface RecipeDisplayProps {
   recipe: GenerateRecipeOutput;
+  imageUrl: string;
 }
 
-export default function RecipeDisplay({ recipe }: RecipeDisplayProps) {
+export default function RecipeDisplay({ recipe, imageUrl }: RecipeDisplayProps) {
   return (
     <Card className="shadow-lg animate-fade-in">
+      {imageUrl && (
+        <div className="relative w-full aspect-video">
+          <Image
+            src={imageUrl}
+            alt={recipe.recipeName}
+            fill
+            className="object-cover rounded-t-lg"
+            data-ai-hint="food recipe"
+          />
+        </div>
+      )}
       <CardHeader>
         <CardTitle className="font-headline text-2xl">{recipe.recipeName}</CardTitle>
         {recipe.additionalNotes && (

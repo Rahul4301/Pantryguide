@@ -107,8 +107,8 @@ export default function RecipeGenerator() {
               </div>
             </CardContent>
           </Card>
-        ) : state.recipe ? (
-          <RecipeDisplay recipe={state.recipe} />
+        ) : state.recipe && state.imageUrl ? (
+          <RecipeDisplay recipe={state.recipe} imageUrl={state.imageUrl} />
         ) : (
            <Card className="flex h-full min-h-[400px] flex-col items-center justify-center text-center p-8 shadow-lg bg-card/50">
              <ChefHatIcon className="w-16 h-16 text-muted-foreground mb-4" />

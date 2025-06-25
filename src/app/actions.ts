@@ -2,6 +2,7 @@
 
 import { z } from 'zod';
 import { generateRecipe, GenerateRecipeOutput } from '@/ai/flows/generate-recipe';
+import { generateRecipeImage } from '@/ai/flows/generate-recipe-image';
 
 const formSchema = z.object({
   ingredients: z.string().min(10, {
@@ -15,6 +16,7 @@ export interface RecipeState {
   };
   error?: string;
   recipe?: GenerateRecipeOutput;
+  imageUrl?: string;
 }
 
 export async function getRecipeAction(
@@ -36,9 +38,12 @@ export async function getRecipeAction(
 
   try {
     const recipe = await generateRecipe({ ingredients: validatedFields.data.ingredients });
+    const { imageUrl } = await generateRecipeImage({ recipeName: recipe.recipeName });
+
     return {
       form: { ingredients: validatedFields.data.ingredients },
       recipe: recipe,
+      imageUrl: imageUrl,
     };
   } catch (error) {
     console.error(error);

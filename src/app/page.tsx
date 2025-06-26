@@ -63,7 +63,7 @@ export default function Home() {
             <MealPrep onAddDish={dish => setDishes([...dishes, dish])} dishes={dishes} />
           </TabsContent>
           <TabsContent value="grocery-list" className="mt-6">
-            <GroceryList groceryItems={groceryItems} />
+            <GroceryList />
           </TabsContent>
         </Tabs>
       </main>

@@ -1,6 +1,6 @@
-# 🥫 Pantryguide
+# 🥫 PantryPal
 
-A modern, AI-powered recipe and grocery assistant built with Next.js, Genkit, and Firebase Studio.
+A modern, AI-powered meal planning and grocery assistant built with Next.js, Genkit, MySQL, and more.
 
 ---
 
@@ -10,7 +10,12 @@ A modern, AI-powered recipe and grocery assistant built with Next.js, Genkit, an
    ```bash
    npm install
    ```
-2. **Start the development server**
+2. **Set up your environment**
+   - Create a `.env.local` file with your API keys:
+     ```env
+     GEMINI_API_KEY=your_gemini_api_key
+     ```
+3. **Start the development server**
    ```bash
    npm run dev
    ```
@@ -20,10 +25,12 @@ A modern, AI-powered recipe and grocery assistant built with Next.js, Genkit, an
 
 ## ✨ Features
 
-- **AI Recipe Generation**: Generate creative recipes using Genkit AI.
-- **Grocery Mapping**: Visualize and manage your grocery list with Google Maps integration.
-- **Modern UI**: Built with Radix UI, Tailwind CSS, and custom components for a beautiful experience.
-- **Firebase Integration**: Ready for cloud deployment and real-time features.
+- **AI Recipe Generation:** Generate creative recipes using Genkit AI.
+- **Meal Prep Planner:** Add dishes to your meal plan and automatically generate a comprehensive grocery list using AI.
+- **Interactive Grocery List:** Add, remove, and manage grocery items, all stored in a MySQL database.
+- **Grocery Mapping:** Visualize and manage your grocery list with map integration.
+- **Modern UI:** Built with Radix UI, Tailwind CSS, and custom components for a beautiful experience.
+- **Cloud Ready:** Firebase and MySQL integration for real-time and persistent data.
 
 ---
 
@@ -36,7 +43,7 @@ A modern, AI-powered recipe and grocery assistant built with Next.js, Genkit, an
 │   ├── app/          # Next.js app directory
 │   ├── components/   # UI and feature components
 │   ├── hooks/        # Custom React hooks
-│   └── lib/          # Utility functions
+│   └── lib/          # Utility functions and database
 ├── public/           # Static assets
 ├── package.json      # Project metadata and scripts
 └── ...
@@ -46,13 +53,13 @@ A modern, AI-powered recipe and grocery assistant built with Next.js, Genkit, an
 
 ## 🛠️ Useful Scripts
 
-| Command           | Description                       |
-|-------------------|-----------------------------------|
-| `npm run dev`     | Start development server          |
-| `npm run build`   | Build for production              |
-| `npm run start`   | Start production server           |
-| `npm run lint`    | Lint codebase                     |
-| `npm run typecheck` | Type-check TypeScript           |
+| Command             | Description                       |
+|---------------------|-----------------------------------|
+| `npm run dev`       | Start development server          |
+| `npm run build`     | Build for production              |
+| `npm run start`     | Start production server           |
+| `npm run lint`      | Lint codebase                     |
+| `npm run typecheck` | Type-check TypeScript             |
 
 ---
 
@@ -62,6 +69,7 @@ A modern, AI-powered recipe and grocery assistant built with Next.js, Genkit, an
 - [Next.js Documentation](https://nextjs.org/docs)
 - [Genkit Documentation](https://genkit.dev/docs)
 - [Firebase Documentation](https://firebase.google.com/docs)
+- [MySQL Documentation](https://dev.mysql.com/doc/)
 
 ---
 

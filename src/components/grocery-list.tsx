@@ -4,15 +4,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
+const GROCERY_INPUT_KEY = 'grocery-list-input';
+
 export default function GroceryList() {
   const [item, setItem] = useState("");
   const [items, setItems] = useState<string[]>([]);
 
+  // Load input from localStorage on mount
   useEffect(() => {
+    const savedInput = localStorage.getItem(GROCERY_INPUT_KEY);
+    if (savedInput) setItem(savedInput);
     fetch("/api/grocery-list")
       .then(res => res.json())
-      .then(setItems);
+      .then(setItems)
+      .catch(() => setItems([]));
   }, []);
+
+  // Save input to localStorage whenever it changes
+  useEffect(() => {
+    localStorage.setItem(GROCERY_INPUT_KEY, item);
+  }, [item]);
 
   const addItem = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,6 +35,7 @@ export default function GroceryList() {
     });
     setItems([...items, item]);
     setItem("");
+    localStorage.removeItem(GROCERY_INPUT_KEY);
   };
 
   const removeItem = async (name: string) => {

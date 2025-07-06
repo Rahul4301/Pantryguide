@@ -1,17 +1,18 @@
+'use client';
+
 import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-
-export const metadata: Metadata = {
-  title: 'PantryPal',
-  description: 'Generate recipes from ingredients you have.',
-};
+import { usePathname } from 'next/navigation';
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const showHeaderFooter = !['/landing', '/login', '/signup'].includes(pathname);
+
   return (
     <html lang="en">
       <head>

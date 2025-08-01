@@ -31,7 +31,7 @@ export default function LandingPage() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                    Unlock Your Culinary Potential with PantryGuide
+                    Unlock Your Culinary Potential with PantryPal
                   </h1>
                   <p className="max-w-[600px] text-gray-500 md:text-xl dark:text-gray-400">
                     Never wonder what to cook again. PantryGuide helps you create delicious meals with the ingredients you
@@ -126,7 +126,7 @@ export default function LandingPage() {
                 Ready to Get Started?
               </h2>
               <p className="mx-auto max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Sign up for PantryGuide today and take the stress out of meal planning.
+                Sign up for PantryPal today and take the stress out of meal planning.
               </p>
             </div>
             <div className="mx-auto w-full max-w-sm space-y-2">

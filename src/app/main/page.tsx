@@ -5,8 +5,9 @@ import RecipeGenerator from "@/components/recipe-generator"
 import GroceryMap from "@/components/grocery-map"
 import MealPrep from "@/components/meal-prep"
 import GroceryList from "@/components/grocery-list"
+import { RecipeHistory } from "@/components/recipe-history"
 import { ChefHatIcon } from "@/components/icons/chef-hat"
-import { Map, Utensils, ListChecks } from "lucide-react"
+import { Map, Utensils, ListChecks, BookMarked } from "lucide-react"
 import { useState } from "react"
 
 export default function Home() {
@@ -36,7 +37,7 @@ export default function Home() {
       </header>
       <main className="container mx-auto p-4 sm:p-6 lg:p-8">
         <Tabs defaultValue="recipe" className="w-full">
-          <TabsList className="grid w-full grid-cols-4 max-w-2xl mx-auto">
+          <TabsList className="grid w-full grid-cols-5 max-w-2xl mx-auto">
             <TabsTrigger value="recipe">
               <Utensils className="mr-2 h-4 w-4" />
               Recipe Generator
@@ -53,6 +54,10 @@ export default function Home() {
               <ListChecks className="mr-2 h-4 w-4" />
               Grocery List
             </TabsTrigger>
+            <TabsTrigger value="history">
+              <BookMarked className="mr-2 h-4 w-4" />
+              History
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="recipe" className="mt-6">
             <RecipeGenerator />
@@ -65,6 +70,9 @@ export default function Home() {
           </TabsContent>
           <TabsContent value="grocery-list" className="mt-6">
             <GroceryList />
+          </TabsContent>
+          <TabsContent value="history" className="mt-6">
+            <RecipeHistory />
           </TabsContent>
         </Tabs>
       </main>

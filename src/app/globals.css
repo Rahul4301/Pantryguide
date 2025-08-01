@@ -82,3 +82,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .recipe-history-card {
+    @apply mt-6;
+  }
+  .recipe-history-accordion .accordion-item {
+    @apply border-b;
+  }
+  .recipe-history-accordion .accordion-trigger {
+    @apply py-4 font-semibold;
+  }
+  .recipe-history-accordion .accordion-content {
+    @apply pt-2 pb-4;
+  }
+  .recipe-history-delete-button {
+    @apply mt-4;
+  }
+}

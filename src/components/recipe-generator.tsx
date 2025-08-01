@@ -50,6 +50,14 @@ export default function RecipeGenerator() {
     }
   }, [state.error, toast]);
 
+  useEffect(() => {
+    if (state.recipe) {
+      const savedRecipes = JSON.parse(localStorage.getItem("recipeHistory") || "[]");
+      const newRecipes = [...savedRecipes, state.recipe];
+      localStorage.setItem("recipeHistory", JSON.stringify(newRecipes));
+    }
+  }, [state.recipe]);
+
   return (
     <div className="grid gap-8 md:grid-cols-2 items-start">
       <Card className="shadow-lg sticky top-24">
